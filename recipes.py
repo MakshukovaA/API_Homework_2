@@ -2,9 +2,12 @@ def load_recipes(file_path):
     cook_book = {}
     with open(file_path, 'r', encoding='utf-8') as f:
         while True:
-            dish_name = f.readline().strip()
+            dish_name = f.readline()
             if not dish_name:
                 break
+            dish_name = dish_name.strip()
+            if not dish_name:
+                continue
             num_ingredients = int(f.readline().strip())
             ingredients = []
             for _ in range(num_ingredients):
